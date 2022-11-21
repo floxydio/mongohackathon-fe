@@ -4,9 +4,6 @@
     export let name: string;
     let getId: string = localStorage.getItem("id");
     let getRole: string = localStorage.getItem("role");
-
-    console.log(getId);
-    console.log(getRole);
     
     function goToSignIn() {
         alert("Berhasil")
@@ -48,11 +45,18 @@
           </li>
           <li class="nav-item">
             {#if getId === null && getRole === null}
+            {:else}
+              <Link class="nav-link" to="/create-post">Create Post</Link>
+            {/if}
+          </li>
+          <li class="nav-item">
+            {#if getId === null && getRole === null}
             <Link class="nav-link" to="/sign-in">Create Your Account</Link>
-            {:else}   
+            {:else}
             <Link class="nav-link" on:click={goToSignIn} to="/">Logout</Link>
             {/if} 
           </li>
+
         
         </ul>
       </div>

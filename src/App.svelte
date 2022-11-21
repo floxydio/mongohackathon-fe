@@ -6,6 +6,7 @@
   import Event from "./Pages/Event/Event.svelte";
   import SignIn from "./Pages/Auth/SignIn.svelte";
   import Signup from "./Pages/Auth/Signup.svelte";
+  import Create from "./Pages/CreatePost/Create.svelte"
 
 </script>
   <Router>
@@ -15,6 +16,7 @@
     <Route path="/event" component={Event} />
     <Route path="/sign-in" component={SignIn} />
     <Route path="/sign-up" component={Signup} />
+    <Route path="/create-post" component={Create} />
   </Router>
 <style>
 </style>
