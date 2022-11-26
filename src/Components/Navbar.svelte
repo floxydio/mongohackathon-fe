@@ -28,7 +28,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid ">
-        <h2 class="navbar-brand"><Link to="/">{name}</Link></h2>
+        <h2 class="navbar-brand"><Link to="/">😃 {name}</Link></h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -44,7 +44,7 @@
             <Link class="nav-link text-white" to="/about">About</Link>
           </li>
           <li class="nav-item ">
-            {#if getId === null && getRole === null}
+            {#if getId === null && getRole === null || getRole !== "1"}
             <div></div>
             {:else}
               <Link class="nav-link text-white" to="/create-post">Create Post</Link>
@@ -52,9 +52,9 @@
           </li>
           <li class="nav-item">
             {#if getId === null && getRole === null}
-            <Link class="nav-link text-white" to="/sign-in">Sign In</Link>
+            <Link class="nav-link text-white" to="/sign-in"><i class="fas fa-sign-in"></i> Sign In</Link>
             {:else}
-            <Link class="nav-link text-white" on:click={goToSignIn} to="/">Logout</Link>
+            <Link class="nav-link text-white" on:click={goToSignIn} to="/"><i class="fas fa-sign-out"></i> Logout</Link>
             {/if}
           </li>
 

@@ -1,5 +1,7 @@
 <script lang="ts">
   let homeContent = [];
+  let data: string
+  let trigger = false
 
   async function getContent() {
     await fetch("http://192.168.43.110:3000/content")
@@ -7,6 +9,19 @@
       .then((data) => (homeContent = data.data));
   }
   getContent();
+  function bookmarkContent(id) {
+    console.log(id)
+    trigger = true
+    localStorage.setItem(`bookmark${id}`, "exist");
+  }
+  function getBookmarkContent(id) {
+    console.log(id)
+    data = localStorage.getItem(`bookmark${id}`);
+  }
+
+  function deleteBookmarkContent(id) {
+    localStorage.removeItem(`bookmark${id}`)
+  }
 </script>
 
 <div>
@@ -26,6 +41,7 @@
               <p class="btn_title btn btn-danger">{event.title}</p>
               <div class="content_style">{@html event.content}</div>
               <button
+                on:click={(e) => getBookmarkContent(event._id)}
                 class="btn btn-success float-end"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal{event._id}">Show More</button
@@ -41,6 +57,11 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
+                    {#if data !== "exist"}
+                    <button class="{trigger === true ? 'space btn btn-outline-success' : 'space btn btn-outline-success'}" on:click={(e) => bookmarkContent(event._id)}><i class="fa fa-bookmark"></i> Bookmark</button>
+                    {:else}
+                    <button class="space btn btn-outline-success" on:click={(e) => deleteBookmarkContent(event._id)}><i class="fa fa-bookmark text-warning"></i> Unbookmark</button>
+                    {/if}
                     {@html event.content}
                     <button class="btn_close btn btn-success" data-bs-dismiss="modal">Close</button>
                   </div>
@@ -55,6 +76,9 @@
 </div>
 
 <style>
+  .space {
+    margin-bottom: 20px;
+  }
   .btn_title {
     font-size: 11px;
     width: 80px!important;
