@@ -5,6 +5,7 @@
     await fetch("http://192.168.43.110:3000/event")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         event = data.data;
       });
   };
@@ -33,17 +34,37 @@
           <div class="card-body">
             <h5 class="event__title">{event.name}</h5>
             <p class="event__desc">{event.description}</p>
-            <a href="/" class="btn btn-primary float-end">Show More</a>
+            <button class="btn btn-success float-end"   data-bs-toggle="modal"
+            data-bs-target="#exampleModal{event._id}">Show More</button>
+            <div
+            class="modal fade"
+            id="exampleModal{event._id}"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body text-center">
+                  <p>{event.description}</p>
+                  <button class="btn_close btn btn-success" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
       {/each}
-    </div>  
+    </div>
   </div>
 
 </div>
 
 <style>
+  .btn_close {
+    width: 100%!important;
+  }
   .event__title {
     white-space: nowrap;
     overflow: hidden !important;

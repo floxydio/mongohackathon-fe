@@ -19,7 +19,7 @@
             if(data.status === 201) {
                 alert(data.message)
                 location.href = "/sign-in";
-                
+
             }
         });
     }
@@ -33,7 +33,7 @@
         <input class="mb-5" type="text" name="email" id="email" bind:value={emailHandler} placeholder="Input Your Username..." />
         <label class="mb-1" for="password">Password</label>
         <input type="password" class="mb-5" name="password" id="password" bind:value={password} placeholder="Input Your Password..." />
-        <button type="submit">Create Account</button>
+        <button class="btn btn-success" type="submit">Create Account</button>
     </form>
 </div>
 
@@ -52,7 +52,7 @@
     }
 
     .signup__main label {
-        font-size: 20px;  
+        font-size: 20px;
     }
 
     .signup__main form {
@@ -79,7 +79,7 @@
         width: 106%;
         padding: 10px;
         border: none;
-        background-color: #ff3e00;
+        /* background-color: #ff3e00; */
         color: white;
         font-weight: bold;
         cursor: pointer;

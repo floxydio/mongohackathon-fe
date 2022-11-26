@@ -4,13 +4,13 @@
     export let name: string;
     let getId: string = localStorage.getItem("id");
     let getRole: string = localStorage.getItem("role");
-    
+
     function goToSignIn() {
         alert("Berhasil")
         location.reload()
         localStorage.removeItem("id");
         localStorage.removeItem("role")
-    }   
+    }
 </script>
 
 <!-- <nav>
@@ -20,14 +20,14 @@
         <Link to="/event">Event</Link>
         {#if getId === null && getRole === null}
         <Link to="/sign-in">Sign In</Link>
-        {:else}   
+        {:else}
         <Link on:click={goToSignIn} to="/">Logout</Link>
-        {/if} 
+        {/if}
     </div>
 </nav> -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container-fluid ">
         <h2 class="navbar-brand"><Link to="/">{name}</Link></h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,29 +35,30 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <Link class="nav-link" to="/">Home</Link>
+            <Link class="nav-link text-white" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/event">Event</Link>
+            <Link class="nav-link text-white" to="/event">Event</Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" to="/about">About</Link>
+            <Link class="nav-link text-white" to="/about">About</Link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             {#if getId === null && getRole === null}
+            <div></div>
             {:else}
-              <Link class="nav-link" to="/create-post">Create Post</Link>
+              <Link class="nav-link text-white" to="/create-post">Create Post</Link>
             {/if}
           </li>
           <li class="nav-item">
             {#if getId === null && getRole === null}
-            <Link class="nav-link" to="/sign-in">Create Your Account</Link>
+            <Link class="nav-link text-white" to="/sign-in">Sign In</Link>
             {:else}
-            <Link class="nav-link" on:click={goToSignIn} to="/">Logout</Link>
-            {/if} 
+            <Link class="nav-link text-white" on:click={goToSignIn} to="/">Logout</Link>
+            {/if}
           </li>
 
-        
+
         </ul>
       </div>
     </div>
@@ -70,9 +71,11 @@
         justify-content: space-between;
         align-items: center;
     }
-   
+
+
+
     :global(a) {
-        color: black;
+        color: white;
         margin-left: 10px;
         margin-right: 10px;
         text-decoration: none;

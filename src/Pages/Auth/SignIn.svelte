@@ -50,7 +50,7 @@
     />
     <p>Dont Have account?<a class="link_sign" href="/sign-up">Register</a></p>
 
-    <button type="submit">Sign In</button>
+    <button class="btn btn-success" type="submit">Sign In</button>
   </form>
 </div>
 
@@ -96,7 +96,7 @@
     width: 106%;
     padding: 10px;
     border: none;
-    background-color: #ff3e00;
+    /* background-color: #ff3e00; */
     color: white;
     font-weight: bold;
     cursor: pointer;
