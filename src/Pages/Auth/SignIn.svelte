@@ -3,7 +3,7 @@
   let password: string;
   async function onSubmit(event: Event) {
     event.preventDefault();
-    await fetch("http://192.168.43.110:3000/sign-in", {
+    await fetch("http://103.13.207.31:3000/sign-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
