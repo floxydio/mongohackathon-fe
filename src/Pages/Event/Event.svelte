@@ -2,7 +2,7 @@
   let event = [];
 
   const getEvent = async () => {
-    await fetch("http://103.13.207.31:3000/event")
+    await fetch("http://103.134.154.200/event")
       .then((res) => res.json())
       .then((data) => {
         console.log(data)

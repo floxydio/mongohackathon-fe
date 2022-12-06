@@ -4,7 +4,7 @@
   let trigger = false
 
   async function getContent() {
-    await fetch("http://103.13.207.31:3000/content")
+    await fetch("http://103.134.154.200/content")
       .then((res) => res.json())
       .then((data) => (homeContent = data.data));
   }
@@ -31,7 +31,7 @@
         <div class="col-md-4 mb-3">
           <div class="card">
             <img
-              src="http://103.13.207.31:3000/static/{event.filename}"
+              src="http://103.134.154.200/static/{event.filename}"
               class="card-img-top img"
               alt="..."
               height="200"

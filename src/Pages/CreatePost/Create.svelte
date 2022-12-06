@@ -44,7 +44,7 @@
     formData.append("content", content.html);
     formData.append("image", image);
 
-    await fetch("http://103.13.207.31:3000/create", {
+    await fetch("http://103.134.154.200/create", {
       method: "POST",
 
       body: formData,

@@ -4,7 +4,7 @@
     let password: string;
     async function onSubmit(event: Event) {
         event.preventDefault();
-        await fetch("http://103.13.207.31:3000/sign-up ", {
+        await fetch("http://103.134.154.200/sign-up ", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
